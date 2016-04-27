@@ -2,8 +2,9 @@
 
 > Get captions for image using Microsoft's CaptionBot 🤖
 
-<img src="http://imgur.com/B7a15F5.jpg" width="300px">
-🤖 `I think it's a dog in the snow.`
+| <img src="http://imgur.com/B7a15F5.jpg" width="300px"> |
+|--------------------------------------|
+| `🤖 I think it's a dog in the snow.` |
 
 ## Install
 
