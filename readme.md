@@ -42,6 +42,7 @@ Returns a promise for the caption.
 
 ## Notes
 
+* Requires Node 4 or newer.
 * Powered by [CaptionBot](https://www.captionbot.ai/), a free service provided by Microsoft.
 * If you like this, you can read more at https://www.microsoft.com/cognitive-services.
 * This node module was not created by Microsoft.
