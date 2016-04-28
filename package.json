@@ -1,6 +1,6 @@
 {
   "name": "captionbot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Get captions for image using Microsoft's CaptionBot 🤖",
   "license": "MIT",
   "repository": "dylang/captionbot",

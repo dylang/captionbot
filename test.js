@@ -6,6 +6,15 @@ test('image', async t => {
     t.is(result, `I think it's a dog in the snow.`);
 });
 
+test.cb('image using caption', t => {
+    t.plan(2);
+    captionbot('http://imgur.com/B7a15F5.jpg', (err, result) => {
+        t.falsy(err);
+        t.is(result, `I think it's a dog in the snow.`);
+        t.end();
+    });
+});
+
 test('non-image url', async t => {
     const result = await captionbot('http://microsoft.com/');
     t.is(result, `I really can't describe the picture 😳`);
