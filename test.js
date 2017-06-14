@@ -3,14 +3,14 @@ import captionbot from './';
 
 test('image', async t => {
     const result = await captionbot('http://imgur.com/B7a15F5.jpg');
-    t.is(result, `I think it's a dog in the snow.`);
+    t.is(result, `I think it's a dog that is covered in snow.`);
 });
 
 test.cb('image using caption', t => {
     t.plan(2);
     captionbot('http://imgur.com/B7a15F5.jpg', (err, result) => {
         t.falsy(err);
-        t.is(result, `I think it's a dog in the snow.`);
+        t.is(result, `I think it's a dog that is covered in snow.`);
         t.end();
     });
 });

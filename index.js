@@ -4,13 +4,15 @@ const got = require('got');
 const validUrl = require('valid-url').isUri;
 
 function captionbot(imageUrl) {
+    var conversationId;
+
     if (!validUrl(imageUrl)) {
         return Promise.reject(new Error('A valid url is required.'));
     }
 
     return got('https://www.captionbot.ai/api/init', {json: true})
         .then(response => {
-            const conversationId = response.body;
+            conversationId = response.body;
             const cookie = response.headers['set-cookie'][0].split(';')[0];
 
             const options = {
@@ -27,8 +29,18 @@ function captionbot(imageUrl) {
 
             return got('https://www.captionbot.ai/api/message', options);
         })
-        .then(response => {
-            return (JSON.parse(response.body).UserMessage || '').trim();
+        .then(function () {
+            const options = {
+                query: {
+                    conversationId: conversationId,
+                    waterMark: ''
+                }
+            };
+
+            return got('https://www.captionbot.ai/api/message', options)
+                .then(response => {
+                    return JSON.parse(JSON.parse(response.body)).BotMessages[1].trim();
+                });
         });
 }
 
