@@ -5,7 +5,7 @@ const validUrl = require('valid-url').isUri;
 
 function captionbot(imageUrl) {
     var conversationId;
-    
+
     if (!validUrl(imageUrl)) {
         return Promise.reject(new Error('A valid url is required.'));
     }
@@ -35,13 +35,12 @@ function captionbot(imageUrl) {
                     conversationId: conversationId,
                     waterMark: ''
                 }
-            }
-            
+            };
+
             return got('https://www.captionbot.ai/api/message', options)
                 .then(response => {
                     return JSON.parse(JSON.parse(response.body)).BotMessages[1];
-                })
-            return (JSON.parse(response.body).UserMessage || '').trim();
+                });
         });
 }
 
