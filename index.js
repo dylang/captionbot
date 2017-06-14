@@ -29,7 +29,7 @@ function captionbot(imageUrl) {
 
             return got('https://www.captionbot.ai/api/message', options);
         })
-        .then(response => {
+        .then(function() {
             const options = {
                 query: {
                     conversationId: conversationId,
