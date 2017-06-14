@@ -39,7 +39,7 @@ function captionbot(imageUrl) {
 
             return got('https://www.captionbot.ai/api/message', options)
                 .then(response => {
-                    return JSON.parse(JSON.parse(response.body)).BotMessages[1];
+                    return JSON.parse(JSON.parse(response.body)).BotMessages[1].trim();
                 });
         });
 }
